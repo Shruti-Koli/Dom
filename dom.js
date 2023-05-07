@@ -14,3 +14,15 @@ items[2].style.backgroundColor="green";
 for(var i=0;i<items.length;i++){
     items[i].style.fontWeight="bold";
 }
+
+
+//And try editing it with getelementsbyclassname 
+var li = document.querySelectorAll(".list-group-item");
+for(var i=0;i<li.length;i++){
+    li[i].style.backgroundColor="#f4f4f4";
+}
+//and then by getelementbytagname
+var li = document.querySelectorAll("li");
+for(var i=0;i<li.length;i++){
+    li[i].style.backgroundColor="#f4f4f4";
+}
