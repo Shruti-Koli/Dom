@@ -27,6 +27,9 @@ var li = document.querySelectorAll(".list-group-item");
 //     li[i].style.backgroundColor="#f4f4f4";
 //}
 
+
+
+//// TASK 6////
 // Make the 2nd item have green background color
 // var sec = document.querySelector("li:nth-child(2)");
 // sec.style.backgroundColor="green";
@@ -39,7 +42,31 @@ var li = document.querySelectorAll(".list-group-item");
 //li[1].style.color="green";
 
 // // Choose all the odd elements and make their background green using QuerySelectorALL
-var oddli = document.querySelectorAll("li:nth-child(odd)");
-for(var i=0;i<oddli.length;i++){
-    oddli[i].style.backgroundColor="green";
-}
+// var oddli = document.querySelectorAll("li:nth-child(odd)");
+// for(var i=0;i<oddli.length;i++){
+//     oddli[i].style.backgroundColor="green";
+// }
+
+
+//// TASK 7////
+// Now go head and add HEllo word before Item Lister
+var newdiv = document.createElement("div");
+newdiv.className="hello";
+newdiv.id="hello1";
+
+var newtext= document.createTextNode("HEllo");
+newdiv.appendChild(newtext);
+
+console.log(newdiv);
+var contain1= document.querySelector('header .container');
+console.log(contain1)
+var h1 = document.querySelector('header h1')
+contain1.insertBefore(newdiv,h1);
+
+
+// Now go head and add HEllo word before Item 1
+var contain2= document.querySelector("#items");
+console.log(contain2)
+var ii = document.querySelector('li')
+console.log(ii)
+contain2.insertBefore(newdiv,ii);
