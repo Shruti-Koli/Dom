@@ -132,6 +132,15 @@
             let delbutn = document.createElement("button");
             delbutn.className="delbtn";
             delbutn.style.width="100px";
+            var clickarea = document.getElementById("disp");
+            delbutn.onclick=()=>{
+                if(confirm("are you sure?")){
+                    var delnode= delbutn.previousSibling;
+                    clickarea.removeChild(delnode);
+                    clickarea.removeChild(delbutn);
+                    localStorage.removeItem(myObj.mail);
+                }
+            }
             delbutn.appendChild(document.createTextNode("Delete"));
             toDisp.appendChild(delbutn);
 
@@ -143,30 +152,21 @@
             event.target.uemail.value="";
             event.target.unum.value="";
             event.target.ucalltime.value="";
-
-
         }
 
-        var clickarea = document.getElementById("disp");
-        clickarea.addEventListener("click",del);
+        //var clickarea = document.getElementById("disp");
+        //clickarea.addEventListener("click",del);
 
-        function del(e){
-            if(e.target.classList.contains("delbtn")){
-                if(confirm("are you sure?")){
-                    // Array.from(localStorage).forEach(function(i){
-                    //     //console.log(e.target.previousSibling)
-                    //     console.log(i)
-                    //     // if(e.target.previousSibling.indexOf(i)!=-1){
-                    //     //     localStorage.removeItem(i);
-                    //     // }
-                    // });
+        // function del(e){
+        //     if(e.target.classList.contains("delbtn")){
+        //         if(confirm("are you sure?")){
 
-                    var delnode= e.target.previousSibling;
-                    clickarea.removeChild(delnode);
-                    clickarea.removeChild(e.target)
-                }
-            }
-        }
+        //             var delnode= e.target.previousSibling;
+        //             clickarea.removeChild(delnode);
+        //             clickarea.removeChild(e.target)
+        //         }
+        //     }
+        // }
     </script>
 </body>
 </html>
