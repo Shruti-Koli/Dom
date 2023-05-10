@@ -57,15 +57,33 @@
     </form>
     <script>
         function onclicking(event){
+            //Task10
+            // event.preventDefault();
+            // //console.log(event.target.uname.value);
+            // localStorage.setItem('name',event.target.uname.value);
+            // event.target.uname.value="";
+            // //console.log(event.target.uemail.value);
+            // localStorage.setItem('email',event.target.uemail.value);
+            // event.target.uemail.value="";
+            // //console.log(event.target.unum.value);
+            // localStorage.setItem('number',event.target.unum.value);
+            // event.target.unum.value="";
+            // //console.log(event.target.ucalltime.value);
+            // localStorage.setItem('call_time',event.target.ucalltime.value);
+            // event.target.ucalltime.value="";
+
+            //Task11
             event.preventDefault();
-            //console.log(event.target.uname.value);
-            localStorage.setItem('name',event.target.uname.value);
-            //console.log(event.target.uemail.value);
-            localStorage.setItem('email',event.target.uemail.value);
-            //console.log(event.target.unum.value);
-            localStorage.setItem('number',event.target.unum.value);
-            //console.log(event.target.ucalltime.value);
-            localStorage.setItem('call_time',event.target.ucalltime.value)
+
+            let myObj={
+                name:event.target.uname.value,
+                mail:event.target.uemail.value,
+                number:event.target.unum.value,
+                time:event.target.ucalltime.value
+            };
+
+            let myObj_str = JSON.stringify(myObj);
+            localStorage.setItem("userdata",myObj_str); 
         }
     </script>
 </body>
