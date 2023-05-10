@@ -57,6 +57,7 @@
     </form>
     <div id="disp"></div>
     <script>
+
         function onclicking(event){
             //Task10
             // event.preventDefault();
@@ -86,7 +87,32 @@
             // let myObj_str = JSON.stringify(myObj);
             // localStorage.setItem("userdata",myObj_str); 
 
-            // task12:
+            // // task12:
+            // event.preventDefault();
+            // let myObj={
+            //     name:event.target.uname.value,
+            //     mail:event.target.uemail.value,
+            //     number:event.target.unum.value,
+            //     time:event.target.ucalltime.value
+            // };
+
+            // let myObj_str = JSON.stringify(myObj);
+            // let key=event.target.uemail.value;
+            // localStorage.setItem(key,myObj_str); 
+
+            // let data= document.createTextNode('name: '+event.target.uname.value+',mail: '+event.target.uemail.value+',number: '+event.target.unum.value+',time: '+event.target.ucalltime.value);
+            // var toDisp= document.getElementById("disp");
+            // toDisp.appendChild(data);
+            // var brk= document.createElement("br");
+            // toDisp.appendChild(brk);
+            
+            // event.target.uname.value="";
+            // event.target.uemail.value="";
+            // event.target.unum.value="";
+            // event.target.ucalltime.value="";
+
+
+            //task13
             event.preventDefault();
             let myObj={
                 name:event.target.uname.value,
@@ -102,6 +128,14 @@
             let data= document.createTextNode('name: '+event.target.uname.value+',mail: '+event.target.uemail.value+',number: '+event.target.unum.value+',time: '+event.target.ucalltime.value);
             var toDisp= document.getElementById("disp");
             toDisp.appendChild(data);
+
+            let delbutn = document.createElement("button");
+            delbutn.className="delbtn";
+            delbutn.style.width="100px";
+            delbutn.appendChild(document.createTextNode("Delete"));
+            toDisp.appendChild(delbutn);
+
+
             var brk= document.createElement("br");
             toDisp.appendChild(brk);
             
@@ -110,6 +144,28 @@
             event.target.unum.value="";
             event.target.ucalltime.value="";
 
+
+        }
+
+        var clickarea = document.getElementById("disp");
+        clickarea.addEventListener("click",del);
+
+        function del(e){
+            if(e.target.classList.contains("delbtn")){
+                if(confirm("are you sure?")){
+                    // Array.from(localStorage).forEach(function(i){
+                    //     //console.log(e.target.previousSibling)
+                    //     console.log(i)
+                    //     // if(e.target.previousSibling.indexOf(i)!=-1){
+                    //     //     localStorage.removeItem(i);
+                    //     // }
+                    // });
+
+                    var delnode= e.target.previousSibling;
+                    clickarea.removeChild(delnode);
+                    clickarea.removeChild(e.target)
+                }
+            }
         }
     </script>
 </body>
