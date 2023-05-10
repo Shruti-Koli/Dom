@@ -55,6 +55,7 @@
         <input type="datetime-local" id="calltime" name="ucalltime" required ><br><br>
         <input type="submit" value="GET A CALL" style="box-shadow: 0px 0px 2px black;font-weight:bold;"><br>
     </form>
+    <div id="disp"></div>
     <script>
         function onclicking(event){
             //Task10
@@ -73,8 +74,20 @@
             // event.target.ucalltime.value="";
 
             //Task11
-            event.preventDefault();
+            // event.preventDefault();
 
+            // let myObj={
+            //     name:event.target.uname.value,
+            //     mail:event.target.uemail.value,
+            //     number:event.target.unum.value,
+            //     time:event.target.ucalltime.value
+            // };
+
+            // let myObj_str = JSON.stringify(myObj);
+            // localStorage.setItem("userdata",myObj_str); 
+
+            // task12:
+            event.preventDefault();
             let myObj={
                 name:event.target.uname.value,
                 mail:event.target.uemail.value,
@@ -83,7 +96,20 @@
             };
 
             let myObj_str = JSON.stringify(myObj);
-            localStorage.setItem("userdata",myObj_str); 
+            let key=event.target.uemail.value;
+            localStorage.setItem(key,myObj_str); 
+
+            let data= document.createTextNode('name: '+event.target.uname.value+',mail: '+event.target.uemail.value+',number: '+event.target.unum.value+',time: '+event.target.ucalltime.value);
+            var toDisp= document.getElementById("disp");
+            toDisp.appendChild(data);
+            var brk= document.createElement("br");
+            toDisp.appendChild(brk);
+            
+            event.target.uname.value="";
+            event.target.uemail.value="";
+            event.target.unum.value="";
+            event.target.ucalltime.value="";
+
         }
     </script>
 </body>
