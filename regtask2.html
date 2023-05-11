@@ -179,7 +179,10 @@
                 number:event.target.unum.value,
                 time:event.target.ucalltime.value
             };
-
+            if(localStorage.getItem(myObj.mail)!=null){
+                alert("edit existing item");
+            }
+            else{
             let myObj_str = JSON.stringify(myObj);
             let key=event.target.uemail.value;
             localStorage.setItem(key,myObj_str); 
@@ -233,6 +236,7 @@
             event.target.unum.value="";
             event.target.ucalltime.value="";
         }
+    }
 
 
 
